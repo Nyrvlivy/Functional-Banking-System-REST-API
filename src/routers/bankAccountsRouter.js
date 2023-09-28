@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const {
+  validateBankPassword,
+} = require("../middlewares/bankPasswordValidation");
+const { listAccounts } = require("../controllers/bankAccountsController");
 
-const database = require("../data/database");
-
-// LIST accounts
-router.get("/accounts", (req, res) => {
-  // const { bankPassword } = req.query;
-});
+router.get("/accounts", validateBankPassword, listAccounts, (req, res) => {});
 
 module.exports = router;
