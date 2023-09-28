@@ -1,10 +1,19 @@
 const express = require("express");
-const routes = express.Router();
+const router = express.Router();
+const accountOperationsRouter = require("../routers/accountOperationsRouter");
+const bankAccountsRouter = require("../routers/bankAccountsRouter");
+const queriesRouter = require("../routers/queriesRouter");
+const transactionsRouter = require("../routers/transactionsRouter");
 
 const mainRouteMiddleware = require("../middlewares/mainRouteMiddleware");
 
-routes.get("/", (req, res) => {
+router.use("/", accountOperationsRouter);
+router.use("/", bankAccountsRouter);
+router.use("/", queriesRouter);
+router.use("/", transactionsRouter);
+
+router.get("/", (req, res) => {
   res.send("This is my main route!");
 });
 
-module.exports = routes;
+module.exports = router;

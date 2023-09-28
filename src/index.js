@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-const mainRoutes = require("./routes/mainRoutes");
+const mainRouter = require("./routers/mainRouter");
 
-app.use("/", mainRoutes);
+app.use("/", mainRouter);
 
 app.listen(port, () => {
   console.log(`Server initialized on port ${port}.`);
