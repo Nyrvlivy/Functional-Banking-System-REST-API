@@ -1,3 +1,5 @@
+const accountModel = require("../models/accountModel")
+
 module.exports = {
   bank: {
     name: "Cubos Bank",
@@ -6,30 +8,8 @@ module.exports = {
     password: "Cubos123Bank",
   },
   accounts: [
-    {
-      number: "1",
-      balance: 0,
-      user: {
-        name: "Foo Bar",
-        cpf: "00011122233",
-        birthDate: "2021-03-15",
-        phoneNumber: "71999998888",
-        email: "foo@bar.com",
-        password: "1234",
-      },
-    },
-    {
-      number: "2",
-      balance: 1000,
-      user: {
-        name: "Foo Bar 2",
-        cpf: "00011122234",
-        birthDate: "2021-03-15",
-        phoneNumber: "71999998888",
-        email: "foo@bar2.com",
-        password: "12345",
-      },
-    },
+    accountModel(1, 0, "Foo Bar", "00011122233", "2021-03-15", "71999998888", "foo@bar.com", "1234"),
+    accountModel(2, 1000, "Foo Bar 2", "00011122234", "2021-03-15", "71999998888", "foo@bar2.com", "12345"),
   ],
 
   withdraws: [],

@@ -4,6 +4,8 @@ const port = 3000;
 
 const mainRouter = require("./routers/mainRouter");
 
+app.use(express.json());
+
 app.use("/", mainRouter);
 
 app.listen(port, () => {

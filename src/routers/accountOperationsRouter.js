@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const database = require("../data/database");
+const { createNewAccount, updateAccount, deleteAccount } = require("../controllers/accountOperationsController");
 
 // CREATE account
-router.post("/accounts/", (req, res) => {});
+router.post("/accounts/", createNewAccount, (req, res) => {});
 
 // UPDATE account
-router.put("/accounts/:numberAccount/user", (req, res) => {});
+router.put("/accounts/:numberAccount/user", updateAccount, (req, res) => {});
 
 // DELETE account
-router.delete("/accounts/:numberAccount", (req, res) => {
+router.delete("/accounts/:numberAccount", deleteAccount, (req, res) => {
   // Only for balance 0.
 });
 
