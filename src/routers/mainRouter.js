@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const accountOperationsRouter = require("../routers/accountOperationsRouter");
-const bankAccountsRouter = require("../routers/bankAccountsRouter");
-const queriesRouter = require("../routers/queriesRouter");
-const transactionsRouter = require("../routers/transactionsRouter");
+const accountOperationsRouter = require("./accountOperationsRouter");
+const bankAccountsRouter = require("./bankAccountsRouter");
+const queriesRouter = require("./queriesRouter");
+const transactionsRouter = require("./transactionsRouter");
 
 const mainRouteMiddleware = require("../middlewares/mainRouteMiddleware");
 
