@@ -128,8 +128,8 @@ const deleteAccount = (req, res, next) => {
   );
 
   if (accounts[accountIndex].balance != 0) {
-    return res.status(403).json({ message: httpStatusCode[403] });
-  }
+    return res.status(403).json({ message: httpStatusCode[403] });
+  }
 
   accounts.splice(accountIndex, 1);
 
