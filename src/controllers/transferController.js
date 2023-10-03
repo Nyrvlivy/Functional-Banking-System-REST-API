@@ -18,8 +18,8 @@ const createNewTransfer = (req, res, next) => {
   transfers.push(
     transferModel(
       format(new Date(), "yyyy-MM-dd HH:mm:ss"),
-      sourceAccount,
-      destinationAccount,
+      sourceAccountNumber,
+      destinationAccountNumber,
       amount
     )
   );
@@ -28,4 +28,4 @@ const createNewTransfer = (req, res, next) => {
   next();
 };
 
-module.exports = { createNewTransfer };
+module.exports = { createNewTransfer };

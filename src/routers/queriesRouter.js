@@ -5,10 +5,11 @@ const { validateAccountNumber } = require("../middlewares/accountNumberValidatio
 const { validateAccountPassword } = require("../middlewares/accountPasswordValidationMiddleware");
 
 const { getAccountBalance } = require("../controllers/balanceController");
+const { getAccountStatement } = require("../controllers/statementController");
 
 
 router.get("/accounts/balance", validateAccountNumber, validateAccountPassword, getAccountBalance, (req, res) => {});
 
-router.get("/accounts/statement", validateAccountNumber, validateAccountPassword, (req, res) => {});
+router.get("/accounts/statement", validateAccountNumber, validateAccountPassword, getAccountStatement, (req, res) => {});
 
 module.exports = router;
