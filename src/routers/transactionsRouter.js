@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const { validateAccountNumber } = require("../middlewares/accountNumberValidationMiddleware");
+const { validateAccountNumber } = require("../middlewares/validateAccountNumberMiddleware");
 const { validateTransferAccounts } = require("../middlewares/validateTransferAccountsMiddleware");
-const { validateAccountPassword } = require("../middlewares/accountPasswordValidationMiddleware");
-const { isPositiveAmount } = require("../middlewares/amountVerificationMiddleware");
+const { validateAccountPassword } = require("../middlewares/validateAccountPasswordMiddleware");
+const { isPositiveAmount } = require("../middlewares/validateAmountMiddleware");
 
 const { createNewDeposit } = require("../controllers/depositController");
 const { createNewWithdraw } = require("../controllers/withdrawController");

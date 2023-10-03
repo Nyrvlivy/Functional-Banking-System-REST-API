@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const { validateAccountNumber } = require("../middlewares/accountNumberValidationMiddleware");
-const { validateAccountPassword } = require("../middlewares/accountPasswordValidationMiddleware");
+const { validateAccountNumber } = require("../middlewares/validateAccountNumberMiddleware");
+const { validateAccountPassword } = require("../middlewares/validateAccountPasswordMiddleware");
 
 const { getAccountBalance } = require("../controllers/balanceController");
 const { getAccountStatement } = require("../controllers/statementController");

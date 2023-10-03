@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { validateAccountNumber } = require("../middlewares/accountNumberValidationMiddleware");
+const { validateAccountNumber } = require("../middlewares/validateAccountNumberMiddleware");
 
 const { createNewAccount, updateAccount, deleteAccount } = require("../controllers/accountOperationsController");
 
