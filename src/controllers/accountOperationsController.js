@@ -7,7 +7,7 @@ const { validateCPF, validateEmail } = require("./dataValidationController");
 const generateRandomNumber = () => Math.floor(100000 + Math.random() * 900000);
 
 const validateAccountData = (
-  numberAccount,
+  accountNumber,
   name,
   cpf,
   birthDate,
@@ -25,16 +25,25 @@ const validateAccountData = (
   }
   const emailStatusMessage = validateEmail(email);
   if (emailStatusMessage.status === 400) {
-    return { status: 400, message: `Invalid Email: ${emailStatusMessage.message}` };
+    return {
+      status: 400,
+      message: `Invalid Email: ${emailStatusMessage.message}`,
+    };
   }
 
   const existingAccount = accounts.find((account) => {
     return account.user.cpf === cpf || account.user.email === email;
   });
   if (existingAccount) {
-    if (existingAccount.user.cpf === cpf && existingAccount.number != numberAccount) {
+    if (
+      existingAccount.user.cpf === cpf &&
+      existingAccount.number != accountNumber
+    ) {
       return { status: 400, message: "CPF is already registered!" };
-    } else if (existingAccount.user.email === email && existingAccount.number != numberAccount) {
+    } else if (
+      existingAccount.user.email === email &&
+      existingAccount.number != accountNumber
+    ) {
       return { status: 400, message: "Email is already registered!" };
     }
   }
@@ -55,7 +64,9 @@ const createNewAccount = (req, res) => {
     password
   );
   if (validationStatus.status !== 200) {
-    return res.status(validationStatus.status).json({ message: validationStatus.message });
+    return res
+      .status(validationStatus.status)
+      .json({ message: validationStatus.message });
   }
 
   let uniqueNumber;
@@ -82,24 +93,16 @@ const createNewAccount = (req, res) => {
 };
 
 const updateAccount = (req, res, next) => {
-  const { numberAccount } = req.params;
+  const { accountNumber } = req.params;
 
   const userAccount = accounts.find(
-    account => account.number == numberAccount
+    (account) => account.number == accountNumber
   );
 
-  const {
-    name,
-    cpf,
-    birthDate,
-    phoneNumber,
-    email,
-    password
-  } = req.body;
-
+  const { name, cpf, birthDate, phoneNumber, email, password } = req.body;
 
   const validationStatus = validateAccountData(
-    numberAccount,
+    accountNumber,
     name,
     cpf,
     birthDate,
@@ -108,25 +111,29 @@ const updateAccount = (req, res, next) => {
     password
   );
   if (validationStatus.status !== 200) {
-    return res.status(validationStatus.status).json({ message: validationStatus.message });
+    return res
+      .status(validationStatus.status)
+      .json({ message: validationStatus.message });
   }
 
-  res.status(204).send()
+  res.status(204).send();
   next();
 };
 
 const deleteAccount = (req, res, next) => {
-  const { numberAccount } = req.params;
+  const { accountNumber } = req.params;
 
-  const accountIndex = accounts.findIndex(account => account.number === numberAccount);
+  const accountIndex = accounts.findIndex(
+    (account) => account.number === accountNumber
+  );
 
   if (accounts[accountIndex].balance === 0) {
     return res.status(403).json({ message: httpStatusCode[403] });
   }
 
   accounts.splice(accountIndex, 1);
-  
-  res.status(204).send()
+
+  res.status(204).send();
   next();
 };
 

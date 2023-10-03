@@ -6,8 +6,8 @@ const { createNewAccount, updateAccount, deleteAccount } = require("../controlle
 
 router.post("/accounts/", createNewAccount, (req, res) => {});
 
-router.put("/accounts/:numberAccount/user", validateAccountNumber, updateAccount, (req, res) => {});
+router.put("/accounts/:accountNumber/user", validateAccountNumber, updateAccount, (req, res) => {});
 
-router.delete("/accounts/:numberAccount", validateAccountNumber, deleteAccount, (req, res) => {});
+router.delete("/accounts/:accountNumber", validateAccountNumber, deleteAccount, (req, res) => {});
 
 module.exports = router;

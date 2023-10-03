@@ -2,15 +2,18 @@ const { accounts } = require("../data/database");
 const httpStatusCode = require("../data/httpStatusCode");
 
 const validateAccountNumber = (req, res, next) => {
-  const { numberAccount } = req.params;
+  let { accountNumber } = req.body;
 
+  if (!accountNumber) {
+    accountNumber = req.params.accountNumber;
+  }
   
-  if (isNaN(numberAccount) || numberAccount.length !== 6) {
+  if (isNaN(accountNumber) || accountNumber.length !== 6) {
     return res.status(400).json({ message: httpStatusCode[400] });
   }
   
   const accountExists = accounts.find(
-    account => account.number == numberAccount
+    account => account.number == accountNumber
   );
     
   if (!accountExists) {
