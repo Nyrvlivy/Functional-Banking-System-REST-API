@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const database = require("../data/database");
+const { validateAccountNumber } = require("../middlewares/accountNumberValidationMiddleware");
+const { validateAccountPassword } = require("../middlewares/accountPasswordValidationMiddleware");
 
-// GET balance
-router.get("/accounts/balance", (req, res) => {});
+const { getAccountBalance } = require("../controllers/balanceController");
 
-// GET statement
-router.get("/accounts/statement", (req, res) => {
-  // include: deposits, transfers and withdraws
-});
+
+router.get("/accounts/balance", validateAccountNumber, validateAccountPassword, getAccountBalance, (req, res) => {});
+
+router.get("/accounts/statement", validateAccountNumber, validateAccountPassword, (req, res) => {});
 
 module.exports = router;
