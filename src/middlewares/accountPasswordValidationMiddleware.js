@@ -10,7 +10,7 @@ const validateAccountPassword = (req, res, next) => {
 
   const account = accounts.find((account) => account.number === accountNumber);
 
-  if (account.password !== password) {
+  if (account.user.password !== password) {
     return res.status(400).json({ message: "Invalid password!" });
   }
 
