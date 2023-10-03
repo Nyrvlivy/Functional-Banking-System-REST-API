@@ -2,7 +2,7 @@ const { accounts, deposits } = require("../data/database");
 const depositModel = require("../models/depositModel");
 const {format} = require('date-fns');
 
-const createNewDeposit = (req, res) => {
+const createNewDeposit = (req, res, next) => {
   const { accountNumber, amount } = req.body;
 
   const account = accounts.find((account) => account.number == accountNumber);
