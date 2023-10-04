@@ -1,8 +1,6 @@
 const { accounts } = require("../data/database");
 
 const listAccounts = (req, res) => {
-  const { bank_password } = req.query;
-
   if (accounts.length === 0) {
     return res.status(204).send();
   }

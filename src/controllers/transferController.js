@@ -28,4 +28,4 @@ const createNewTransfer = (req, res, next) => {
   next();
 };
 
-module.exports = { createNewTransfer };
+module.exports = { createNewTransfer };

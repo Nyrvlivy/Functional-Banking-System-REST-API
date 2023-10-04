@@ -116,6 +116,13 @@ const updateAccount = (req, res, next) => {
       .json({ message: validationStatus.message });
   }
 
+  userAccount.user.name = name;
+  userAccount.user.cpf = cpf;
+  userAccount.user.birthDate = birthDate;
+  userAccount.user.phoneNumber = phoneNumber;
+  userAccount.user.email = email;
+  userAccount.user.password = password;
+
   res.status(204).send();
   next();
 };

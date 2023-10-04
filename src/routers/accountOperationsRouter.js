@@ -4,10 +4,10 @@ const { validateAccountNumber } = require("../middlewares/validateAccountNumberM
 
 const { createNewAccount, updateAccount, deleteAccount } = require("../controllers/accountOperationsController");
 
-router.post("/accounts/", createNewAccount, (req, res) => {});
+router.post("/accounts/", createNewAccount);
 
-router.put("/accounts/:accountNumber/user", validateAccountNumber, updateAccount, (req, res) => {});
+router.put("/accounts/:accountNumber/user", validateAccountNumber, updateAccount);
 
-router.delete("/accounts/:accountNumber", validateAccountNumber, deleteAccount, (req, res) => {});
+router.delete("/accounts/:accountNumber", validateAccountNumber, deleteAccount);
 
 module.exports = router;

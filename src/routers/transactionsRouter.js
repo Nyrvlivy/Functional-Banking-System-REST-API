@@ -10,10 +10,10 @@ const { createNewDeposit } = require("../controllers/depositController");
 const { createNewWithdraw } = require("../controllers/withdrawController");
 const { createNewTransfer } = require("../controllers/transferController");
 
-router.post("/transactions/deposit", validateAccountNumber, isPositiveAmount, createNewDeposit, (req, res) => {});
+router.post("/transactions/deposit", validateAccountNumber, isPositiveAmount, createNewDeposit);
 
-router.post("/transactions/withdraw", validateAccountNumber, validateAccountPassword, isPositiveAmount, createNewWithdraw, (req, res) => {});
+router.post("/transactions/withdraw", validateAccountNumber, validateAccountPassword, isPositiveAmount, createNewWithdraw);
 
-router.post("/transactions/transfer", validateTransferAccounts, isPositiveAmount, createNewTransfer, (req, res) => {});
+router.post("/transactions/transfer", validateTransferAccounts, isPositiveAmount, createNewTransfer);
 
 module.exports = router;

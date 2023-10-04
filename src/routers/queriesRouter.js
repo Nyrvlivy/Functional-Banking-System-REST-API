@@ -8,8 +8,8 @@ const { getAccountBalance } = require("../controllers/balanceController");
 const { getAccountStatement } = require("../controllers/statementController");
 
 
-router.get("/accounts/balance", validateAccountNumber, validateAccountPassword, getAccountBalance, (req, res) => {});
+router.get("/accounts/balance", validateAccountNumber, validateAccountPassword, getAccountBalance);
 
-router.get("/accounts/statement", validateAccountNumber, validateAccountPassword, getAccountStatement, (req, res) => {});
+router.get("/accounts/statement", validateAccountNumber, validateAccountPassword, getAccountStatement);
 
 module.exports = router;

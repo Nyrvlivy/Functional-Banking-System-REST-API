@@ -4,8 +4,7 @@
   "description": "Backend Development Project: Building a REST API for a Functional Banking System Prototype by Cubos Academy.",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon ./src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "nodemon": "nodemon ./src/index.js"
   },
   "keywords": [
     "Backend",

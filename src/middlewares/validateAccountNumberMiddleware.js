@@ -11,7 +11,6 @@ const validateAccountNumber = (req, res, next) => {
       accountNumber = req.query.accountNumber;
     }
   }
-
   
   if (isNaN(accountNumber) || accountNumber.length !== 6) {
     return res.status(400).json({ message: httpStatusCode[400] });

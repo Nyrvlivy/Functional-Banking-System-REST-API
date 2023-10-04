@@ -1,7 +1,4 @@
 const accountModel = require("../models/accountModel");
-const depositModel = require("../models/depositModel");
-const withdrawModel = require("../models/withdrawModel");
-const transferModel = require("../models/transferModel");
 
 module.exports = {
   bank: {

@@ -1,5 +1,4 @@
 const { accounts } = require("../data/database");
-const httpStatusCode = require("../data/httpStatusCode");
 
 const getAccountBalance = (req, res, next) => {
   let { accountNumber} = req.params;

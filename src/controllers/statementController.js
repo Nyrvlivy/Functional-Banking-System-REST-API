@@ -1,5 +1,4 @@
-const { accounts, deposits, withdraws, transfers } = require("../data/database");
-const httpStatusCode = require("../data/httpStatusCode");
+const { deposits, withdraws, transfers } = require("../data/database");
 
 const getAccountStatement = (req, res, next) => {
   let { accountNumber} = req.params;
@@ -7,8 +6,6 @@ const getAccountStatement = (req, res, next) => {
   if(!accountNumber) {
     accountNumber = req.query.accountNumber;
   }
-
-  const account = accounts.find((account) => account.number === accountNumber);
 
   const depositsStatement = deposits.filter(deposit => deposit.accountNumber === accountNumber);
   const withdrawsStatement = withdraws.filter(withdraw => withdraw.accountNumber === accountNumber);
@@ -26,4 +23,4 @@ const getAccountStatement = (req, res, next) => {
   next();
 };
 
-module.exports = { getAccountStatement };
+module.exports = { getAccountStatement };
