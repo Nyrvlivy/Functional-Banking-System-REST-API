@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="GitHub Banner" src="https://github.com/Nyrvlivy/Functional-Banking-System-REST-API/raw/main/bank-banner2.jpg">
+  <img alt="GitHub Banner" src="./assets/images/bank-banner2.jpg">
 </div>
 
 <h1 align="center">Functional-Banking-System-REST-API</h1>
@@ -74,7 +74,7 @@ You can interact with the RESTful API using the following endpoints:
 
 ### List Accounts
 By navigating here, you can view a list of all the registered accounts in your bank.
-```sh
+```bash
     GET localhost:<your_port>/accounts?bank_password=<your_bank_password>
 ```
 ##
@@ -82,12 +82,12 @@ By navigating here, you can view a list of all the registered accounts in your b
 ### Create Account
 
 This endpoint allows you to register new users through accounts in your bank.
-```sh
+```bash
     POST localhost:<your_port>/accounts/
 ```
 To create an account, _make sure to fill in all the required fields_, as shown in the example JSON below:
-```sh
-    {
+```json
+{
     "name": "Bruna",
     "cpf": "58164973461",
     "birthDate": "1999-28-02",
@@ -105,7 +105,7 @@ This endpoint allows you to update user information associated with a specific b
     PUT localhost:<your_port>/accounts/:accountNumber/user
 ```
 To make updates, provide the required fields in the request body.
-```sh
+```json
 {
     "name": "Bruninha",
     "cpf": "15924846825",
@@ -133,7 +133,7 @@ You can deposit money into a bank account using this endpoint.
     POST localhost:<your_port>/transactions/deposit
 ```
 Ensure that you provide the account number and the amount to deposit in the request body.
-```sh
+```json
 {
     "accountNumber": "000001",
     "amount": 10000
@@ -148,7 +148,7 @@ Withdraw money from a bank account through this endpoint.
     POST localhost:<your_port>/transactions/withdraw
 ```
 Make sure to include the account number, withdrawal amount, and account password in the request body.
-```sh
+```json
 {
     "accountNumber": "000001",
     "password": "1234",
@@ -164,7 +164,7 @@ Transfer money between bank accounts using this endpoint.
     POST localhost:<your_port>/transactions/transfer
 ```
 Provide the source account number, destination account number, transfer amount, and source account password in the request body.
-```sh
+```json
 {
     "sourceAccountNumber": "000001",
     "destinationAccountNumber": "000002",
@@ -211,6 +211,6 @@ Provide the account number and account password as query parameters.
 ###### tags: `Backend` `nodeJS` `REST API` `express` `npm` `challenge`
 
 <div align="center">
-  <img alt="GitHub Banner" src="https://github.com/Nyrvlivy/Functional-Banking-System-REST-API/raw/main/bank-footer.jpg">
+  <img alt="GitHub Footer" src="./assets/images/bank-footer.jpg">
 </div>
 
