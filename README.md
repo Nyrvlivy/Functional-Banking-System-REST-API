@@ -112,7 +112,7 @@ To make updates, provide the required fields in the request body.
     "birthDate": "2002-02-28",
     "phoneNumber": "11985498457",
     "email": "wow@gmail.com",
-    "password": "1234"
+    "password": "1234"
 }
 ```
 ##
